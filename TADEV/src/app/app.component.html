@@ -1,2 +1,26 @@
-<p>Welcome to travel agent</p>
-<router-outlet></router-outlet>
+<div class="wrapper">
+    <div fxLayout="row" fxFlexFill>
+        <div fxFlex="20">
+        </div>
+        <div fxFlex="60">
+            <app-header></app-header>
+            <mat-divider></mat-divider>
+        </div>
+        <div fxFlex="20">
+        </div>
+    </div>
+    <div class="router-content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="footer-content">
+        <div fxLayout="row" fxFlexFill>
+            <div fxFlex="5">
+            </div>
+            <div fxFlex="90">
+                <app-footer></app-footer>
+            </div>
+            <div fxFlex="5">
+            </div>
+        </div>
+    </div>
+</div>

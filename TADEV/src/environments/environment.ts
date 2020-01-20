@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BaseUrl:"http://10.96.25.16/globalappointmentta/",  
+  Missioncode:"ukvi",
+  Countrycode:"cia"
+  // ForgotPassword_Api: "api/v1.0/user/forgetpassword",
+  // ResetPassword_Api: "api/v1.0/user/resetpassword"
 };
 
 /*

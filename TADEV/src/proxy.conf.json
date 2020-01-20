@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://10.96.25.16/globalappointmentta",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
