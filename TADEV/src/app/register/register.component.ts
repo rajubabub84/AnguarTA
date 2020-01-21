@@ -155,6 +155,10 @@ export class RegisterComponent implements OnInit {
       debugger;
       // this.registrationapiresponse = response;
       console.log(response);
+      if(response[0]==200)
+      {
+        this.isSubmitted = true;
+      }
      // alert(response[1]);
     // this.isSubmitted = true;
     });

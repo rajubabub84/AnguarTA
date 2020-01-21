@@ -30,7 +30,7 @@ export class ForgotpasswordComponent implements OnInit {
   }
 
   submitForgotPassword(){ 
-    this._snackBar.open("Email sent successfully");
+   // this._snackBar.open("Email sent successfully");
     //console.log('form', f);
     //this.forgotPasswordService.submitForgotPassword(); 
     this.forgotPassword={
@@ -42,17 +42,33 @@ export class ForgotpasswordComponent implements OnInit {
     this.forgotPasswordService.submitForgotPassword(this.forgotPassword)
     .subscribe(response => {
       debugger;
-       console.log('success response',response); }
+      if(response !=null && response[0]==200)
+      {
+        debugger;
+        this.daialogMessage="Password reset link sent to registered email";
+        this.openDialog();
+        console.log('success response',response);
+      }
+      else if(response!=null && response[0].code==418)
+      {
+        debugger;
+        this.daialogMessage="EmailID does not exist";
+        this.openDialog();
+        console.log('success response',response);
+      }
+    }       
        ,
        error=>{
          debugger;
+        this.daialogMessage="Something went wrong";
+        this.openDialog();
          console.log('error response',error)
        }
     );
     }
 
     openDialog(): void {
-      this.daialogMessage="Password reset link sent to registered email";
+     // this.daialogMessage="Password reset link sent to registered email";
       const dialogRef = this.dialog.open(ForgotpasswordDialog, {
         width: '500px',
         data: this.daialogMessage
@@ -94,7 +110,7 @@ export class ForgotpasswordDialog {
     @Inject(MAT_DIALOG_DATA) public data: string,) {}
 
   onNoClick(): void {
-    this.router.navigate(['./resetpassword']);
+    this.router.navigate(['./login']);
     this.dialogRef.close();
 
     

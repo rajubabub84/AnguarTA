@@ -19,7 +19,7 @@ export class ForgotpasswordService {
      debugger;
     var headers = new HttpHeaders()
     .set("Content-Type", "application/json");
-    return this.http.post<any>(environment.BaseUrl + '/api/v1.0/user/forgotpassword', forgotpassword, { headers})
+    return this.http.post<any>(environment.BaseUrl + 'api/v1.0/user/forgetpassword', forgotpassword, { headers})
             .pipe(map(data => _.values(data)));
    }
 }
