@@ -15,11 +15,11 @@ export class ForgotpasswordService {
   constructor(private http: HttpClient) { 
     
   }
-   submitForgotPassword(forgetpassword:Forgotpassword):Observable<Forgotpasswordresponse>{
+   submitForgotPassword(forgotpassword:Forgotpassword):Observable<any>{
      debugger;
     var headers = new HttpHeaders()
     .set("Content-Type", "application/json");
-    return this.http.post<Forgotpasswordresponse>(environment.BaseUrl+'api/v1.0/user/forgetpassword',forgetpassword,{ headers})
-    .pipe(map(data => _.values(data))); 
+    return this.http.post<any>(environment.BaseUrl + '/api/v1.0/user/forgotpassword', forgotpassword, { headers})
+            .pipe(map(data => _.values(data)));
    }
 }

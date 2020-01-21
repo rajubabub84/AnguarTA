@@ -1,4 +1,4 @@
-import{} from '../models/error';
+import{Error} from '../models/error';
 export class Forgotpasswordresponse {
     Code:string;
     Message:string;

@@ -40,7 +40,8 @@ export class ForgotpasswordComponent implements OnInit {
     this.forgotPasswordService.submitForgotPassword(this.forgotPassword)
     .subscribe(response => {
       debugger;
-       console.log('success response',response); },
+       console.log('success response',response); }
+       ,
        error=>{
          debugger;
          console.log('error response',error)
