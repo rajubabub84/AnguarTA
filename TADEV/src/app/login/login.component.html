@@ -1,0 +1,74 @@
+<div fxlayout="row" fxFlexFill>
+    <mat-grid-list cols = "4" rowHeight = "100px">
+       <mat-grid-tile 
+       [colspan] = "2"
+       [rowspan] = "1">
+       <h1 style="font-weight: 500;">Welcome to the official UK Visas and Immigration website for travel agents – China</h1>
+       </mat-grid-tile>
+       <mat-grid-tile 
+       [colspan] = "1"
+       [rowspan] = "4">
+       <mat-card class="flex-me"  style="border-top: 4px solid #e86020; border-top-left-radius: 0;
+        border-top-right-radius: 0;">
+<mat-card-header>
+<mat-card-title style="font-weight: 400; color: #000; font-size: 25px;">Please login to continue</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+<form #loginForm="ngForm"  (ngSubmit)="login(user)">
+<table class="fullwidth" cellspacing="0">
+ <tr>
+   <td>
+     <mat-form-field class="fullwidth">
+     <input matInput  required floatLabel="never" type="email" placeholder="Enter Email Address"  delayAutoFocus [(ngModel)]="user.username" name="username" autocomplete="off" spellcheck="false" maxlength="256"
+     pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$">
+     </mat-form-field>
+   </td>
+ </tr>
+ <tr>
+ <td><mat-form-field class="fullwidth">
+   <input matInput required placeholder="Password" [(ngModel)]="user.password"type="password" name="password" autocomplete="off" maxlength="32">
+ </mat-form-field></td>
+</tr>
+<tr>
+ <td>
+        <img src="./assets/images/captchalogin.png" class="" width="222" height="53px" alt="Captcha">
+   <div class="centered">{{captchaval}}</div>
+     <a  href=""> <img src="./assets/images/captcha_refresh.png" id="imgCaptchaRefresh" width="28px" style="margin-left: 29px;" (click)="refreshCaptch()"></a>
+   </td>
+
+</tr>
+<tr>
+ <td><mat-form-field class="fullwidth">
+   <input matInput placeholder="Enter Captcha" [(ngModel)]="user.captcha"type="captcha" name="captcha" required>
+ </mat-form-field></td>
+</tr>
+<tr>
+<td>
+<mat-card-actions>
+<button type="submit" class="loginbtn" mat-raised-button  [disabled]="!loginForm.form.valid">Login</button>
+</mat-card-actions>
+</td>
+</tr>
+</table>
+</form>
+<div>
+<small><a style="color:  coral;"  href="#" class="card-link">Sign Up</a></small>
+<small style="margin-left: 53%;"><a style="color:  coral;" href="#">Forgot Password</a></small>
+</div>
+
+         
+<!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+</mat-card-content>
+</mat-card>
+
+       </mat-grid-tile>
+       <mat-grid-tile 
+       [colspan] = "2"
+       [rowspan] = "1">
+       <p>
+           Please log in with Travel Agents account with VFS Global. Travel agents using this service can request group appointments at one of our Visa Application Centres, as well as uploading supporting documents for the members of each group whose booking they are managing.
+       </p>
+       </mat-grid-tile>
+     </mat-grid-list>
+</div>
+

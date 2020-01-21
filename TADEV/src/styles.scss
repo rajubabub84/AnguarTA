@@ -11,6 +11,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .example-full-width {
     width: 100%;
   }
-  // ::ng-deep .mat-input-wrapper{
-  //   width:400px !important;
-  // }
+  .mat-grid-list {
+    display: flex;
+    position: relative;
+    left: 150px;
+  }
+  .mat-dialog-container  {
+    display: flex;
+    overflow-y: hidden;
+  }
+  

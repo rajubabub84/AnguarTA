@@ -1,0 +1,32 @@
+
+.mat-card {
+    display: flex;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    top: -48px;
+    left: 14px;
+}
+.mat-grid-tile {
+    display: flex;
+    overflow: inherit;
+  }
+  .loginbtn {
+  width: 100%;
+  color: #ced4da;
+  background-color: #e86020;
+}
+.fullwidth 
+{
+  width: 100%;
+}
+.centered {
+  position: absolute;
+  top: 54%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-family: auto;
+}
