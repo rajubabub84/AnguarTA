@@ -33,7 +33,11 @@
  <td>
         <img src="./assets/images/captchalogin.png" class="" width="222" height="53px" alt="Captcha">
    <div class="centered">{{captchaval}}</div>
+<<<<<<< HEAD
      <a  href="#"> <img src="./assets/images/captcha_refresh.png" id="imgCaptchaRefresh" width="28px" style="margin-left: 29px;" (click)="refreshCaptch()"></a>
+=======
+     <a href="#"> <img src="./assets/images/captcha_refresh.png" id="imgCaptchaRefresh" width="28px" style="margin-left: 29px;" (click)="refreshCaptch()"></a>
+>>>>>>> 822f18f190ab00337ffdd161430b380cf24a47af
    </td>
 
 </tr>
@@ -52,8 +56,9 @@
 </table>
 </form>
 <div>
-<small><a style="color:  coral;"  href="#" class="card-link">Sign Up</a></small>
-<small style="margin-left: 53%;"><a style="color:  coral;" href="#">Forgot Password</a></small>
+  
+<small><a style="color:  coral;"  href="#" class="card-link" [routerLink]="['/register']">Sign Up</a></small>
+<small style="margin-left: 53%;"><a style="color:  coral;" href="#" [routerLink]="['/forgotpassword']">Forgot Password</a></small>
 </div>
 
          
