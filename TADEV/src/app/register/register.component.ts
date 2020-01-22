@@ -148,7 +148,6 @@ export class RegisterComponent implements OnInit {
   onSubmit(post) {
    
     debugger;
-    //this.post = post;
     let captcha = localStorage.getItem("CapthaRandomVal").replace(/\s/g, "");
     let enteredCatcha= this.formGroup.get('captcha').value;
    if(captcha==enteredCatcha)
@@ -196,6 +195,7 @@ export class RegisterComponent implements OnInit {
   refreshCaptch() {
     debugger;
     this.captchaval = this._captchaService.generateCaptcha();
+    localStorage.setItem('CapthaRandomVal', this.captchaval);
     return false;
   }
 
