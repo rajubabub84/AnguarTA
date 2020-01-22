@@ -13,18 +13,18 @@ export class LoginService {
 
   public userAuthentication(user: ILogin): Observable<Token> {
     debugger;
-    let _url = this.BASE_URL + "/api/v1.0/user/login";
+    let _url = this.BASE_URL + "api/v1.0/user/login";
     const payload = new HttpParams()
       .set('username', user.username)
       .set('password', user.password)
-      .set('missioncode', user.missioncode)
-      .set('countrycode', user.countrycode);
+      .set('missioncode', environment.Missioncode)
+      .set('countrycode', environment.Countrycode);
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded'
       })
     }
-    return this.http.post<Token>(_url, payload);
+    return this.http.post<Token>(_url, payload,httpOptions);
   }
 }
 

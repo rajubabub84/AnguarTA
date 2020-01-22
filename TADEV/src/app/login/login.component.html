@@ -13,21 +13,29 @@
 <mat-card-header>
 <mat-card-title style="font-weight: 400; color: #000; font-size: 25px;">Please login to continue</mat-card-title>
 </mat-card-header>
+
+<mat-error>{{errorDescription}}</mat-error><br>
 <mat-card-content>
 <form #loginForm="ngForm"  (ngSubmit)="login(user)">
 <table class="fullwidth" cellspacing="0">
  <tr>
    <td>
      <mat-form-field class="fullwidth">
-     <input matInput  required floatLabel="never" type="email" placeholder="Enter Email Address"  delayAutoFocus [(ngModel)]="user.username" name="username" autocomplete="off" spellcheck="false" maxlength="256"
+     <input matInput floatLabel="never" type="email" #email="ngModel" required placeholder="Enter Email Address"  delayAutoFocus [(ngModel)]="user.username" name="username" autocomplete="off" spellcheck="false" maxlength="256"
      pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$">
      </mat-form-field>
+     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+     <mat-error *ngIf="!email.errors.required">
+      please enter the valid email 
+  </mat-error>
+     </div>
    </td>
  </tr>
  <tr>
  <td><mat-form-field class="fullwidth">
-   <input matInput required placeholder="Password" [(ngModel)]="user.password"type="password" name="password" autocomplete="off" maxlength="32">
- </mat-form-field></td>
+   <input matInput required placeholder="Password" type="password"  [type]="hide ?'text':'password'" [(ngModel)]="user.password" name="password" autocomplete="off" maxlength="32">
+   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
+  </mat-form-field></td>
 </tr>
 <tr>
  <td>
@@ -39,7 +47,9 @@
 <tr>
  <td><mat-form-field class="fullwidth">
    <input matInput placeholder="Enter Captcha" [(ngModel)]="user.captcha"type="captcha" name="captcha" required>
- </mat-form-field></td>
+ </mat-form-field><mat-error *ngIf="!captchmatch">
+  Invalid Captcha
+</mat-error></td>
 </tr>
 <tr>
 <td>
@@ -57,7 +67,7 @@
 </div>
 
          
-<!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+
 </mat-card-content>
 </mat-card>
 
@@ -70,5 +80,10 @@
        </p>
        </mat-grid-tile>
      </mat-grid-list>
+     <div *ngIf="loading">
+      <img class="loading-img" src="./assets/images/ZNeT.gif"/>
+    </div>
 </div>
+
+
 

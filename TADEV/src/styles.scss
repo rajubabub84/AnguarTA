@@ -20,4 +20,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     overflow-y: hidden;
   }
+  .loading-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8%;
+    margin-top: -28%;
+    z-index: 5000;
+  }
+  
+
+  
   
