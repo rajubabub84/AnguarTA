@@ -33,6 +33,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 // import {registrationapiresponse } from '../shared/error';
 import{Register} from '../models/register';
 import {MustMatch} from '../shared/must-match.validator';
+import {CaptchaService} from '../shared/captcha.service';
 
 @Component({
   selector: 'app-register',
@@ -45,15 +46,20 @@ export class RegisterComponent implements OnInit {
   titleAlert: string = 'This field is required';
   post: any = '';
   register:Register;
+
+  public captchaval: string;
   // registrationapiresponse:registrationapiresponse;
   isSubmitted = false;
   hide = true;
+  catchComparision=true;
 
-  constructor(private formBuilder: FormBuilder,private registrationService: RegistrationService) { }
+  constructor(private formBuilder: FormBuilder,private registrationService: RegistrationService,private _captchaService:CaptchaService) { }
 
   ngOnInit() {
     this.createForm();
     this.setChangeValidate();
+    this.captchaval = this._captchaService.generateCaptcha();
+    localStorage.setItem('CapthaRandomVal', this.captchaval);
     // this.registrationapiresponse=new  registrationapiresponse();
     //this.onSubmit(this.post);
     // this.register=new Register();
@@ -132,15 +138,33 @@ export class RegisterComponent implements OnInit {
   }
 
   getErrorCaptcha() {
+    debugger;
+    if(this.formGroup.get('captcha').hasError('required'))
+    this.catchComparision=true;
     return this.formGroup.get('captcha').hasError('required') ? 'Field is required':"" ;
       
   }
 
   onSubmit(post) {
-    this.isSubmitted = true;
+   
     debugger;
     //this.post = post;
-   
+    let captcha = localStorage.getItem("CapthaRandomVal").replace(/\s/g, "");
+    let enteredCatcha= this.formGroup.get('captcha').value;
+   if(captcha==enteredCatcha)
+   {
+     this.catchComparision=true;
+
+   }
+   else{
+    this.catchComparision=false;
+   }
+
+   if( this.catchComparision==true)
+   {
+     console.log("suceess");
+     this.isSubmitted = true;
+  
     this.register={
       missioncode:"ukvi",
       countrycode:"cia",
@@ -163,9 +187,16 @@ export class RegisterComponent implements OnInit {
     // this.isSubmitted = true;
     });
   }
+  
+  }
 
   submit() {
 
+  }
+  refreshCaptch() {
+    debugger;
+    this.captchaval = this._captchaService.generateCaptcha();
+    return false;
   }
 
 }
