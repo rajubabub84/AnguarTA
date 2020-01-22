@@ -25,10 +25,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-left: auto;
     margin-right: auto;
     width: 8%;
-    margin-top: -28%;
+    margin-top: -20%;
     z-index: 5000;
+    }
+  .mat-spinner circle {
+    stroke: #e86020;
   }
   
+  .overlay {
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.1);
+}
+
 
   
   
