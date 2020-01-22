@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>
+    <img  src="../../assets/images/warning.png" alt="Captcha" height="25px" width="25px" style="vertical-align:inherit;padding-right: 5px;" />
+    Message</h1>
+  <div mat-dialog-content>
+    <p>{{data.daialogMessage}}</p>
+    <!-- <mat-form-field>
+      <input matInput [(ngModel)]="data">
+    </mat-form-field> -->
+  </div>
+  <div mat-dialog-actions>
+      <!-- <a [routerLink]="['/resetpassword']"><button mat-button>OK</button></a> -->
+      <button mat-button class="submit-button" (click)="onNoClick(data.redirectUrl)">OK</button>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  </div>

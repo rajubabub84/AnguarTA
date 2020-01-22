@@ -8,16 +8,15 @@
        <mat-grid-tile 
        [colspan] = "1"
        [rowspan] = "4">
-       <mat-card class="flex-me"  style="border-top: 4px solid #e86020; border-top-left-radius: 0;
-        border-top-right-radius: 0;">
+       <mat-card class="flex-me mat-cardAlign">
 <mat-card-header>
-<mat-card-title style="font-weight: 400; color: #000; font-size: 25px;">Please login to continue</mat-card-title>
+<mat-card-title class="mat-card-titlefont">Please login to continue</mat-card-title>
 </mat-card-header>
 
 <mat-error>{{errorDescription}}</mat-error><br>
 <mat-card-content>
 <form #loginForm="ngForm"  (ngSubmit)="login(user)">
-<table class="fullwidth" cellspacing="0">
+<table class="fullwidth">
  <tr>
    <td>
      <mat-form-field class="fullwidth">
@@ -62,12 +61,9 @@
 </form>
 <div>
   
-<small><a style="color:  coral;"  href="#" class="card-link" [routerLink]="['/register']">Sign Up</a></small>
-<small style="margin-left: 53%;"><a style="color:  coral;" href="#" [routerLink]="['/forgotpassword']">Forgot Password</a></small>
+<small><a  href="#" class="linkcolor"  [routerLink]="['/register']">Sign Up</a></small>
+<small class="forgot-password-link-align"><a  href="#" class="linkcolor" [routerLink]="['/forgotpassword']">Forgot Password</a></small>
 </div>
-
-         
-
 </mat-card-content>
 </mat-card>
 

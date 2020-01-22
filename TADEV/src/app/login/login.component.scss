@@ -9,6 +9,17 @@
     top: -37px;
     left: 14px;
 }
+.mat-cardAlign
+{
+  border-top: 4px solid #e86020;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.mat-card-titlefont{
+  font-weight: 400;
+  color: #000; 
+  font-size: 25px;
+}
 .mat-grid-tile {
     display: flex;
     overflow: inherit;
@@ -29,4 +40,12 @@
   transform: translate(-50%, -50%);
   font-size: 29px;
   font-family: auto;
+}
+.linkcolor
+{
+  color:  coral;
+}
+.forgot-password-link-align
+{
+  margin-left: 53%;
 }
