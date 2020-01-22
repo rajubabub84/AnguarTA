@@ -25,7 +25,8 @@
                     </mat-form-field>
                 
                       <mat-form-field class="form-element">
-                          <input matInput placeholder="Password" formControlName="password">
+                          <input matInput placeholder="Password" [type]="hide ? 'text' : 'password'" formControlName="password">
+                          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
                           <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
                           <mat-error *ngIf="!f.password.valid && f.password.touched">
                             {{ getErrorPassword() }}
@@ -35,7 +36,8 @@
                         
                 
                         <mat-form-field class="form-element">
-                              <input matInput placeholder="Re-Enter Password" formControlName="reenterpassword">
+                              <input matInput placeholder="Re-Enter Password" [type]="hide ? 'text' : 'password'" formControlName="reenterpassword">
+                              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
                               <mat-error *ngIf="!f.reenterpassword.valid && f.reenterpassword.touched">
                                 {{ getReEnterErrorPassword() }}
                               </mat-error>
@@ -93,3 +95,5 @@
     <div fxFlex="30">
     </div>
 </div>
+
+<mat-spinner *ngIf="loadSpinner" class="loading-img"></mat-spinner> 

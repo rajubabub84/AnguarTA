@@ -50,8 +50,9 @@ export class RegisterComponent implements OnInit {
   public captchaval: string;
   // registrationapiresponse:registrationapiresponse;
   isSubmitted = false;
-  hide = true;
+  hide = false;
   catchComparision=true;
+  loadSpinner:boolean=false;
 
   constructor(private formBuilder: FormBuilder,private registrationService: RegistrationService,private _captchaService:CaptchaService) { }
 
@@ -161,6 +162,7 @@ export class RegisterComponent implements OnInit {
 
    if( this.catchComparision==true)
    {
+    this.loadSpinner=true;
      console.log("suceess");
      this.isSubmitted = true;
   
@@ -176,6 +178,7 @@ export class RegisterComponent implements OnInit {
     };
     this.registrationService.RegistrationApplicant(this.register).subscribe((response) => {
       debugger;
+      this.loadSpinner=false;
       // this.registrationapiresponse = response;
       console.log(response);
       if(response[0]==200)
@@ -184,6 +187,14 @@ export class RegisterComponent implements OnInit {
       }
      // alert(response[1]);
     // this.isSubmitted = true;
+    },
+    error=>{
+      debugger;
+      this.loadSpinner=false;
+    
+     
+      console.log('error response',error)
+      this.refreshCaptch();
     });
   }
   
